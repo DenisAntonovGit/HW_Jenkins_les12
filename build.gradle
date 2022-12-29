@@ -36,13 +36,25 @@ dependencies {
 }
 
 tasks.withType(Test) {
+    systemProperties(System.getProperties())
     useJUnitPlatform()
-
     testLogging {
         lifecycle {
             events "started", "skipped", "failed", "standard_error", "standard_out"
             exceptionFormat "short"
         }
+    }
+}
+
+task test_for_jenkins(type: Test) {
+    useJUnitPlatform {
+        includeTags("test_for_jenkins")
+    }
+}
+
+task hello_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("hello")
     }
 }
 

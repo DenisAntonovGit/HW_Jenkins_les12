@@ -1,6 +1,7 @@
 package tests;
 
 import com.codeborne.selenide.selector.ByText;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -13,6 +14,7 @@ import static io.qameta.allure.Allure.step;
 public class TestPracticeForm extends TestBase{
 
     @Test
+    @Tag("test_for_jenkins")
     void testPracticeForm() {
         step("Открываем форму регистрации", () -> {
             open("/automation-practice-form");
